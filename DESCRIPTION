@@ -1,0 +1,22 @@
+Package: tianhai.pgee
+Title: PGEE speeded up with RCpp 
+Version: 0.0.1
+Authors@R: 
+    person(given = "Tianhai",
+           family = "Zu",
+           role = c("aut", "cre"),
+           email = "first.last@example.com",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: .
+License: .
+Encoding: UTF-8
+LazyData: true
+Imports:
+    MASS,
+    mvtnorm,
+    Rcpp (>= 0.10.2),
+    RcppEigen (>= 0.3.2.1.1),
+    Matrix,
+    methods
+LinkingTo: Rcpp, RcppEigen
+RoxygenNote: 7.0.2
