@@ -31,7 +31,7 @@ PGEE<-PGEE_own<- function(formula, id, data, na.action = NULL, family = gaussian
     Terms <- attr(m, "terms")
     #extract data
     y <- model.extract(m, "response")
-    X<- model.matrix(Terms, m, contrasts)
+    X<- model.matrix(Terms, m)
     #extract cluster
     id<-model.extract(m, id)
     

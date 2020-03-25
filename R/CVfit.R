@@ -17,7 +17,7 @@ mf[[1]] <- as.name("model.frame")
 mf <- eval(mf, parent.frame())
 Terms <- attr(mf, "terms")
 y <- model.extract(mf, "response")
-X <- model.matrix(Terms, mf, contrasts)
+X <- model.matrix(Terms, mf)
 id <- model.extract(mf, id)
 
 if(missing(family)) family=gaussian(link="identity")
