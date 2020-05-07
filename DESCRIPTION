@@ -1,6 +1,6 @@
 Package: tianhai.pgee
 Title: PGEE speeded up with RCpp 
-Version: 0.0.2
+Version: 0.0.3
 Authors@R: 
     person(given = "Tianhai",
            family = "Zu",
@@ -19,4 +19,4 @@ Imports:
     Matrix,
     methods
 LinkingTo: Rcpp, RcppEigen
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.0

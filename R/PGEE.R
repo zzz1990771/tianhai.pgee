@@ -216,7 +216,7 @@ PGEE<-PGEE_own<- function(formula, id, data, na.action = NULL, family = gaussian
       
       #set difference
       diff<-sum(abs(beta_old-beta_new)) 
-      
+      #cat(diff)
       iter<-iter+1
       if (silent==0) cat("iter",iter,"beta_new",beta_new,"diff",diff,"\n")
       #break if difference is small enough
@@ -492,12 +492,16 @@ S_H_E_M <- function(N,nt,y,X,nx,family,beta_new,Rhat,fihat,lambda,pindex,eps=10^
     ym<-matrix(0,nt[i],1)
     bigD<-matrix(0,nt[i],nx)
     bigA<-matrix(0,nt[i],nt[i])
+
+    var_mu <- family$variance(mu)
+    mu_eta <- family$mu.eta(eta)
     for (j in 1:nt[i]) {
       #cat("j",j,"\n")
-      ym[j]<- y[j+index[i]]-mu[j+index[i]] 
-      bigA[j,j]<-family$variance(mu)[j+index[i]]
+      jplusi <- j+index[i]
+      ym[j]<- y[jplusi]-mu[jplusi] 
+      bigA[j,j]<-var_mu[jplusi]
       for (k in 1:nx) {
-        bigD[j,k]<-family$mu.eta(eta)[j+index[i]]*X[j+index[i],k]
+        bigD[j,k]<-mu_eta[jplusi]*X[jplusi,k]
         #cat("i",i,"j",j,"k",k,"\n")
       } # for k
     } # for j
